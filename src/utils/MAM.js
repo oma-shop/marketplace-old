@@ -1,4 +1,4 @@
-import * as Mam from '@iota/mam';
+const Mam = require('@iota/mam');
 import { asciiToTrytes, trytesToAscii } from '@iota/converter'
 import { provider } from '../config.json';
 import { composeAPI } from '@iota/core'
@@ -388,6 +388,7 @@ export const createShop = (
                 .then(address => address)
                 .catch(err => {
                     // ...
+                    console.log("err", err)
                 })
             _shop.order_request_address = order_request_address
 
@@ -410,6 +411,8 @@ export const createShop = (
                 console.log("mam_catalog published!", mam_catalog)
                 _shop.catalog_root = mam_catalog.root
                 console.log("_shop 2", _shop)
+                console.log("shop_state_object 2", shop_state_object)
+
                 // publish shop
                 const shop_channel = await publish(_shop, shop_state_object);
                 console.log("shop_channel published!", shop_channel)

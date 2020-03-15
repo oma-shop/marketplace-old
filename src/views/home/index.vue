@@ -1,69 +1,17 @@
 <template>
   <div class="main">
     <nav-bar></nav-bar>
-    <div class="home-container">
-        <h1>Welcome to the Nile Shop Manager</h1>
-        <p>This is a proof of concept of the nile shop application, which stores product blueprints in the Tangle and managable via mam stream.</p>
-        <p>
-        <a href="https://nile.shopping/" target="_blank" rel="noopener">Nile</a>
-        is a decentralized and commission-free shopping ecosystem that promotes local economies.
-        </p>
-        <h3>How it works</h3>
-
-        <p>You can create products, each defined as an object and stores a MAM channel.</p>
-        <p>Credentials are stored in the local database in your browser, so the key to publishes messages in the MAM channel is owned just by you.</p>
-        <p>So there is no third party, which stores your secret information. It's all on your device!</p>
-        <p>The value of the product attributes can be updaded via a new message in the MAM stream, which contains the changes.</p>
-        <p>To fetch the actual information about the product, the application walks thourgh the whole messages of the MAM stream and builds the latest product with actual attributes values.</p>
-        <a href="#/shop/shop">Test it and create an shop!</a>
-        <div class="section section--use-case" id="use-cases">
-          <div class="container">
-            <el-row>
-              <el-col :span="12">
-                <h3 class="section-hero">Features</h3>
-                <el-collapse v-model="activeNames" @change="handleChange">
-                  <el-collapse-item name="1">
-                    <template slot="title">
-                      <span>
-                        <span class="counter">1</span>All orders on a RFID Card
-                      </span>
-                    </template>
-                    <div> The MAM root of an order can be written on an RFID card. With the READ function, you can scan a card and gets information about it through the messages in the MAM channel.</div>
-                  </el-collapse-item>
-                  <el-collapse-item name="2">
-                    <template slot="title">
-                      <span>
-                        <span class="counter">2</span>Scan it, pack it, check it!
-                      </span>
-                    </template>
-                    <div>All information gets displayed on the screen for packing the correct products. You can simply check the packed products like a todo list.</div>
-                  </el-collapse-item>
-                  <el-collapse-item name="3">
-                    <template slot="title">
-                      <span>
-                        <span class="counter">3</span> Card rewards - support your local!
-                      </span>
-                    </template>
-                    <div>The card will be delivered within the package. The buyer can collect those cards and gets a good discount in the local shop for exchange with 5 cards for example.</div>
-                  </el-collapse-item>
-                </el-collapse>
-              </el-col>
-              <el-col :span="12">
-                <img alt="vendor" src="@/assets/customer-circled.jpg">
-              </el-col>
-            </el-row>
-          </div>
-        </div>
-    </div>
+    <Storefront />
   </div>
 </template>
 <script>
 import NavBar from "@/components/Navbar/index";
+import Storefront from "@/components/Storefront/index";
 
 export default {
   name: "home",
   components: {
-    NavBar
+    NavBar, Storefront
   },
   data() {
     return {
