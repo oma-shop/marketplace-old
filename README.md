@@ -1,11 +1,6 @@
-# Nile Store
+# Online Marketplace Application
 
 > A decentralized, commission-free, local-economy focused online shopping platform.
-
-<p align="center">
-  <img width="320" src="https://pbs.twimg.com/profile_images/1096368536874876928/q_ELdaDf_400x400.png">
-</p>
-
 <p align="center">
   <a href="https://github.com/vuejs/vue">
     <img src="https://img.shields.io/badge/vue-2.5.17-brightgreen.svg" alt="vue">
@@ -15,17 +10,12 @@
   </a>
 </p>
 
-## Demo
-
-The demo application is hosted on Heroku on a free plan, so it might need to load a bit longer for the first visit.
-[Try the demo!](https://nile-shop.herokuapp.com)
-
-
 ## Introduction
 
-The basis of the services we provide are the vendors that provide their products and services digitally. 
+The online markedplace application discovers local stores and show global products. 
+Store owners can create new stores for free. 
 
-The vendor uses the Nile Shop application to manage all things related to the shop.
+The buyer and the store communication is peer to peer. 
 
 This project is based on [vue-element-admin](http://panjiachen.github.io/vue-element-admin). This is a front-end management background integration solution. It based on [vue](https://github.com/vuejs/vue) and use the UI Toolkit [element](https://github.com/ElemeFE/element).
 
@@ -33,7 +23,7 @@ This project is based on [vue-element-admin](http://panjiachen.github.io/vue-ele
 
 ```bash
 # Clone project
-git clone https://github.com/huhn511/nile-shop
+git clone https://github.com/oma-shop/marketplace
 
 # Install dependencies
 npm install
@@ -52,8 +42,8 @@ npm run build --report
 
 ```bash
 # Build the container
-docker build -t nile/shop .
+docker build -t oma-shop/marketplace .
 
 # Run the app
-docker run -p 8080:8080 nile/shop
+docker run -p 8080:8080 oma-shop/marketplace
 ``` 
