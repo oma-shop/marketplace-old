@@ -5,12 +5,12 @@
     <router-link to="/products">Discover Products!</router-link>
     <h2>
       Your connected to store:
-      <strong v-if="shop.data">{{ shop.data.name }}</strong>
+      <strong v-if=" $store.state.shop.shop.data">{{ $store.state.shop.shop.data.name }}</strong>
     </h2>
     <h3>Connect to another shop?</h3>
     <el-form :inline="true" :model="form">
       <el-form-item label="Fill in shop root">
-        <el-input v-model="form.root" placeholder="Shop root address"></el-input>
+        <el-input autofocus v-model="form.root" placeholder="Shop root address"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">Change Shop</el-button>
@@ -25,19 +25,17 @@ export default {
   data() {
     return {
       form: {
-        root: ""
+        root: "NHHBDSISWAIT9BSA9JNON9CDYZHDEXFAOJFTF9MDVMLCWQFQB9IBIAMQTDBTZFQDEGQZSPLDASVIWQPGD"
       }
     };
-  },
-  computed: {
-    shop: function() {
-      return this.$store.getters.getShopDetails;
-    }
   },
   methods: {
     onSubmit() {
       console.log("submit!", this.form);
-      this.$store.dispatch("fetchShopDetails", this.form.root).then(() => {
+      console.log("store!", this.$store);
+      console.log("store2!", this.$store.state.shop.shop);
+      this.$store.dispatch("FetchShopDetails", this.form.root).then(() => {
+      console.log("store3!", this.$store.state.shop.shop);
         console.log("new shop loaded");
       });
     },

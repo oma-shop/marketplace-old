@@ -24,6 +24,51 @@ const publish = async (data, mamState) => {
     }
 };
 
+export const fetchShopDetails = async (root, secretKey) => {
+
+    let state_object = Mam.init(provider, generateSeed(), 2)
+    state_object = Mam.changeMode(state_object, 'restricted', secretKey)
+
+    try {
+        const itemEvents = [];
+        const convertData = data => {
+            const itemEvent = JSON.parse(trytesToAscii(data));
+            itemEvents.push(itemEvent);
+        }
+
+        await Mam.fetch(root, 'restricted', secretKey, convertData)
+
+        return itemEvents[0];
+
+    } catch (e) {
+        console.error("fetchItem:", "\n", e);
+        return e;
+    }
+};
+
+export const fetchCatalog = async (root, secretKey) => {
+
+    let state_object = Mam.init(provider, generateSeed, 2)
+    state_object = Mam.changeMode(state_object, 'restricted', secretKey)
+    try {
+        const itemEvents = [];
+        const convertData = data => {
+            const itemEvent = JSON.parse(trytesToAscii(data));
+            itemEvents.push(itemEvent);
+        }
+
+        await Mam.fetch(root, 'restricted', secretKey, convertData)
+
+        return itemEvents;
+
+    } catch (e) {
+        console.error("fetchItem:", "\n", e);
+        return e;
+    }
+};
+
+
+
 export const appendAttributesUpdate = async (product, status, seed, next_root, start) => {
 
     const mamState = {
