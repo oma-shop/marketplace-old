@@ -5,12 +5,8 @@
     <router-link to="/" class="nav-item nav-item--logo" exact-active-class="active">
       <div class="logo"></div>
       <div class="logo-wrapper">
-        <img alt="nile" class="logo logo-rotation-1" src="@/assets/logo_1.svg" />
-        <img alt="nile" class="logo logo-rotation-2" src="@/assets/logo_1.svg" />
-        <img alt="nile" class="logo logo-rotation-3" src="@/assets/logo_1.svg" />
-        <img alt="nile" class="logo logo-rotation-4" src="@/assets/logo_1.svg" />
+        <img alt="online marketplace app" class="logo" src="@/assets/logo.svg" />
       </div>
-      <img alt="nile typo" class="nile-typo" src="@/assets/nile_typo.svg"/>
     </router-link>
 
 
@@ -71,37 +67,21 @@ export default {
       padding-left: 15px;
       padding-right: 15px;
       opacity: 1;
-      .nile-typo {
-        height: 32px;
-        filter: invert(100%);
-        transition: all 200ms ease-in-out;
-      }
       .logo-wrapper {
-        height: 40px;
-        width: 40px;
+        height: 60px;
+        width: 60px;
         border-radius: 100px;
         margin-right: 20px;
         position: relative;
-        filter: invert(100%);
         transition: all 200ms ease-in-out;
         img.logo {
+          margin-top: 11px;
+          margin-left: 9px;
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           transition: all 200ms ease-in-out;
-          &.logo-rotation-1 {
-            opacity: 1 !important;
-          }
-          &.logo-rotation-2 {
-            opacity: .1 !important;
-          }
-          &.logo-rotation-3 {
-            opacity: .1 !important;
-          }
-          &.logo-rotation-4 {
-            opacity: .1 !important;
-          }
         }
       }
 
