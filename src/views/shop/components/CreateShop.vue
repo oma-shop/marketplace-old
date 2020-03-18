@@ -5,10 +5,7 @@
     </el-alert>
 
     <el-form ref="form" :model="form" class="form-container">
-      <sticky class-name="sub-navbar">
-        <el-button style="margin-left: 10px;" type="success" @click="onSubmit">Create</el-button>
-        <el-button @click="onCancel" type="warning">Cancel</el-button>
-      </sticky>
+      <p>You can add your shop details and publish it to the tangle!</p>
 
       <div class="shop-details-form-main-container">
         <el-row>
@@ -30,6 +27,8 @@
           </el-col>
         </el-row>
       </div>
+      <el-button @click="onCancel" type="warning">Cancel</el-button>
+      <el-button style="margin-left: 10px;" type="success" @click="onSubmit">Create</el-button>
     </el-form>
   </div>
 </template>
