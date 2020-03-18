@@ -26,7 +26,11 @@ import '@/permission' // permission control
 import '../mock' // simulation data
 import moment from 'moment'
 
+import vmodal from 'vue-js-modal'
 
+Vue.use(vmodal , { dialog: true })
+import Chat from "@/components/Chat/index";
+Vue.use(Chat, { })
 
 import 'leaflet/dist/leaflet.css'
 
