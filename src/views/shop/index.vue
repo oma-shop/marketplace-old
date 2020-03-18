@@ -38,3 +38,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.shop {
+  margin: 30px;
+}
+</style>

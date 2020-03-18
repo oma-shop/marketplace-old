@@ -1,7 +1,7 @@
 <template>
   <div class="storefront">
     <h1>Online Marketplace Application Demo</h1>
-    <p>You can browse stores, products and even buy them with iota tokens! It's 100% feeless!</p>
+    <p>You can browse stores, products and even buy them with iota tokens! It's 100% free and feeless!</p>
     <router-link to="/products">Discover Products!</router-link>
     <h2>
       Your connected to store:
@@ -16,12 +16,17 @@
         <el-button type="primary" @click="onSubmit">Change Shop</el-button>
       </el-form-item>
     </el-form>
+    <h2>All Products</h2>
+    <ProductList />
   </div>
 </template>
 
 <script>
+import ProductList from "./components/productList";
+
 export default {
   name: "Storefront",
+  components: { ProductList },
   data() {
     return {
       form: {

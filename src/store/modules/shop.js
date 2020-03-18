@@ -2,7 +2,7 @@ import { fetchShopDetails, fetchCatalog, fetchProduct } from '@/utils/MAM'
 
 const shop = {
     state: {
-        all: [],
+        products: [],
         shop: {
             data: {
                 name: ''
@@ -12,11 +12,11 @@ const shop = {
     mutations: {
         FETCHED_SHOP_DETAILS: (state, shop_details) => {
             state.shop = shop_details
-            state.all = []
+            state.products = []
     
         },   
         FETCHED_PRODCUT: (state, product) => {
-            state.all.push(product)
+            state.products.push(product)
         },
     },
     actions: {
@@ -27,14 +27,14 @@ const shop = {
             fetchShopDetails(root, 'TEST').then(function (shop) {
                 console.log('vuex - shop', shop)
                 commit("FETCHED_SHOP_DETAILS", shop);
-                fetchCatalog(shop.catalog_root, 'TEST').then(function (catalog) {
-                    console.log('vuex - catalog', catalog)
+                fetchCatalog(shop.catalog_root, 'TEST').then(function (cataloges) {
+                    console.log('vuex - cataloges', cataloges)
                  
-                    catalog.forEach(item => {
-                        console.log('vuex - item', item)
+                    cataloges.forEach(cataloge => {
+                        console.log('vuex - cataloge', cataloge)
 
-                        if (item.status === "add_blueprint") {
-                            fetchProduct(item.data.product).then(function (product) {
+                        if (cataloge.status === "add_blueprint") {
+                            fetchProduct(cataloge.data.product).then(function (product) {
                                 console.log('vuex - add_blueprint::product', product)
                                 commit("FETCHED_PRODCUT", product);
                              })
