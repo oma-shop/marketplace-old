@@ -12,7 +12,9 @@
 
 ## Introduction
 
-The online markedplace application discovers local stores and show global products. 
+We creating together a decentral, free and open marketplace application that focused on local communities. 
+
+The online markedplace application discovers local stores and show all global products. 
 Store owners can create new stores for free. 
 
 The buyer and the store communication is peer to peer. 
