@@ -38,11 +38,13 @@
       </template>
     </oma-chat>
     <el-button @click.prevent="openChat()">Open Chat</el-button>
+    <WebRTC />
   </div>
 </template>
 <script>
 import NavBar from "@/components/Navbar/index";
 import Storefront from "@/components/Storefront/index";
+import WebRTC from "@/components/webrtc/index";
 
 import messageHistory from './messageHistory'
 import chatParticipants from './chatProfiles'
@@ -54,7 +56,7 @@ console.log("availableColors", availableColors)
 export default {
   name: "home",
   components: {
-    NavBar, Storefront
+    NavBar, Storefront, WebRTC
   },
   data() {
     return {
@@ -172,9 +174,11 @@ export default {
       console.log("participants", this.participants)
       console.log("messageList", this.messageList)
       this.messageList.forEach(x=>x.liked = false);
+
     },
     created() {
       this.setColor('blue')
+
     },
 };
 </script>
