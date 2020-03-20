@@ -538,38 +538,3 @@ export const createMAMChannel = (
     return promise;
 };
 
-
-export const createWebRTC = (
-    seed,
-    key,
-    data
-) => {
-
-    let state_object = Mam.init(provider, seed, 2)
-    state_object = Mam.changeMode(state_object, 'restricted', key)
-
-    const promise = new Promise(async (resolve, reject) => {
-        try {
-
-            // publish object
-            const object_channel = await publish(data, state_object);
-
-            // add secrets to object
-            if (object_channel) {
-                data.root = object_channel.root;
-                data.secretKey = object_channel.state.channel.secretKey;
-                data.next_root = object_channel.state.channel.next_root;
-                data.start = object_channel.state.channel.start;
-                data.seed = seed;
-            }
-
-            // add proper error handling
-            return resolve(data);
-        } catch (error) {
-            console.log('createMAMChannel error', error);
-            return reject();
-        }
-    });
-
-    return promise;
-};

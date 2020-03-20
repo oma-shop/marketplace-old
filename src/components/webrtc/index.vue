@@ -28,7 +28,9 @@
 
 <script>
 var Peer = require('simple-peer')
-import { generateSeed, createWebRTC } from '@/utils/MAM'
+import { createWebRTC } from './connection'
+
+import { generateSeed } from '@/utils/MAM'
 export default {
   data() {
     return {

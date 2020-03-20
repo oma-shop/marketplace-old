@@ -1,10 +1,16 @@
 <template>
+<div>
   <p>Connection</p>
+  <ConnectionHandler />
+</div>
+  
 </template>
 
 <script>
-export default {
+import ConnectionHandler from '@/components/webrtc/ConnectionHandler'
 
+export default {
+   components: { ConnectionHandler }
 }
 </script>
 
