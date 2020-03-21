@@ -43,6 +43,8 @@ body {
   --orange: #E69255;
   --yellow: #E6BE54;
   --purple: #8F60A8;
+  --background: #28222C;
+  --text: #409EFF;
 
   --border-radius: 10px;
   --border-radius-sm: 5px;
