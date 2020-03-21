@@ -7,6 +7,9 @@
         <div v-if="creating">
             <el-button v-if="!waiting_for_connection" @click="createOffer">createOffer</el-button>
         </div>
+        <div id="element">
+            Hi. I'm #element.
+        </div>
     </div>
 </template>
 
