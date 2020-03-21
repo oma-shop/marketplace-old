@@ -1,6 +1,6 @@
 <template>
 <div>
-  <p>Connection</p>
+  <h1>Connection</h1>
   <ConnectionHandler />
 </div>
   

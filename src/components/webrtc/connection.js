@@ -59,6 +59,7 @@ export const readStream = (
     seed,
     key
 ) => {
+    console.log("readStream:: (seed, key)", seed, key)
 
     let state_object = Mam.init(provider, seed, 2)
     console.log("state_object", state_object)
@@ -95,16 +96,19 @@ export const readStream = (
 };
 
 export const createAnswer = (seed, key, answer) => {    
-
+    console.log("createAnswer(seed, key, answer)", seed, key, answer)
     const promise = new Promise(async (resolve, reject) => {
         
         let state_object = Mam.init(provider, seed, 2)
-    
+        console.log("state_object", state_object)
         state_object = Mam.changeMode(state_object, 'restricted', key)
+        console.log("state_object", state_object)
 
         try {
 
+            console.log("plublish mam...")
             const mamData = await publish(answer, state_object);
+            console.log("mam plublish!")
 
             if (mamData) {
                 // Create a new item entry using that item ID
