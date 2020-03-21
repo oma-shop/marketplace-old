@@ -30,7 +30,7 @@ export default {
 // ------------------------------------------
 
 .main-nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
@@ -39,7 +39,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--white);
+  background-color: var(--background);
   box-shadow: 0 3px 6px rgba(0,0,0,.15);
   transition: all 200ms ease-in-out;
   .nav-menu {
@@ -98,7 +98,7 @@ export default {
     &:hover, &.active {
       opacity: 1;
       background-color: rgba(0,0,0,.05);
-      color: var(--secondary-2);
+      color: var(--text);
       &:before {
         content: '';
         position: absolute;
@@ -106,7 +106,7 @@ export default {
         height: 10px;
         width: 50px;
         border-radius: 10px;
-        background-color: var(--secondary-2);
+        background-color: var(--text);
       }
     }
     &:hover {
