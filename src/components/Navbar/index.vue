@@ -75,13 +75,14 @@ export default {
         position: relative;
         transition: all 200ms ease-in-out;
         img.logo {
-          margin-top: 11px;
+          margin-top: 18px;
           margin-left: 9px;
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           transition: all 200ms ease-in-out;
+          fill: #fff;
         }
       }
 
