@@ -11,9 +11,10 @@
       <!--<router-link to="/products">Discover Products!</router-link>-->
       &nbsp;&nbsp;
       <h2>
+        &nbsp;&nbsp;
         <center>
           <font color="#FFFFFF">
-            &nbsp;&nbsp;
+            
             You are connected to store:
           </font>
           <strong v-if=" $store.state.shop.shop.data">{{ $store.state.shop.shop.data.name }}</strong>
@@ -31,7 +32,7 @@
             <div class="grid-content bg-purple-dark"></div>
           </el-col>
         </el-row>
-        <el-form-item label="Fill in shop root">
+        <el-form-item label="Fill in shop root"><el-link href="https://google.de" type="primary">(?)</el-link>
           <el-input autofocus v-model="form.root" placeholder="Shop root address"></el-input>
         </el-form-item>
         <el-form-item>
@@ -39,6 +40,10 @@
         </el-form-item>
       </el-form>
       <h2>All Products</h2>
+      <img 
+    src="/src/assets/wave.svg" 
+    height="815"
+    width="100%" />
       <ProductList />
       <a href="#" v-scroll-to="'#element'">Scroll to #element</a>
     </div>
@@ -78,7 +83,7 @@ export default {
 .storefront {
   margin: -30px 0px 0px 0px;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   display: block;
   background-color: #28222c;
 }
@@ -108,5 +113,8 @@ export default {
 .row-bg {
   padding: 10px 0;
   background-color: #f9fafc;
+}
+.el-input {
+  color: #FFFFFF;
 }
 </style>
