@@ -56,7 +56,7 @@ export default {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    color: var(--dark);
+    color: #FFFFFF;
     text-decoration: none;
     opacity: .75;
     transition: all 200ms ease-in-out;
