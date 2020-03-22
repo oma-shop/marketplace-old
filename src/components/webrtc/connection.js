@@ -12,7 +12,7 @@ const publish = async (data, mamState) => {
         const message = Mam.create(mamState, trytes);
         
         // Attach the payload.
-        await Mam.attach(message.payload, message.address, 3, 14);
+        await Mam.attach(message.payload, message.address, 3, 10);
         return { root: message.root, state: message.state };
     } catch (error) {
         console.log("publish error", error)

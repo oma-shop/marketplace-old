@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="connection">
         <h1>Connection Handler</h1>
         <p v-if="loading">Loading...</p>
         <p v-if="answer">{{answer}}</p>
@@ -9,6 +9,14 @@
         </div>
         <div id="element">
             Hi. I'm #element.
+        </div>
+        <div v-if="connected">
+            <input v-model="new_message" type="text">
+            <button @click="sendMessage">Send</button>
+
+            <ul>
+                <li v-for="(message, index) in messages" :key="index">{{message}}</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -28,7 +36,10 @@ export default {
             offer: '',
             waiting_for_connection: false,
             seed: '',
-            loading: false
+            loading: false,
+            connected: true,
+            messages: [],
+            new_message: ''
         }
     },
     created() {
@@ -39,8 +50,11 @@ export default {
             this.peer = new Peer({ initiator: false, trickle: false })
             
             this.peer.on('data', data => {
-                // got a data channel message
                 console.log('got a message from peer1: ' + data)
+                // got a data channel message
+                let x = String.fromCharCode.apply(null,data)
+                console.log('got a message from peer1 -converted: ' + x)
+                this.messages.push(x)
             })
             let key = this.$route.query.key
             console.log("Key" ,key)
@@ -106,10 +120,17 @@ export default {
                 }
             })
 
-            this.peer.on('data', () => {
+            this.peer.on('data', data => {
                 // wait for 'connect' event before using the data channel
-                console.log("peer:on data!", data)
+                console.log('got a message from peer2: ' + data)
+                // got a data channel message
+                let x = String.fromCharCode.apply(null,data)
+                console.log('got a message from peer2 -converted: ' + x)
+                this.messages.push(x)
             })
+        },
+        sendMessage() {
+            this.peer.send(this.new_message)
         },
         startWatcher(root) {
             let self = this
@@ -131,6 +152,8 @@ export default {
                                 self.peer.on('connect', () => {
                                     // wait for 'connect' event before using the data channel
                                     console.log("connected!!!")
+
+                                    self.connected = true
 
                                     self.peer.send('hey peer2, how is it going?')
                                 })
@@ -154,7 +177,9 @@ export default {
     }
 }
 </script>
-
 <style>
+.connection {
+    margin: 20px;
+}
 
 </style>
