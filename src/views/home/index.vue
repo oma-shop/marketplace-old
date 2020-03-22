@@ -37,8 +37,6 @@
         </p>
       </template>
     </oma-chat>
-    <el-button @click.prevent="openChat()">Open Chat</el-button>
-    <ConnectionHandler />
   </div>
 </template>
 <script>

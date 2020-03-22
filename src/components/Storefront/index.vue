@@ -6,62 +6,61 @@
         <h1>
           <font color="#409EFF">Online Marketplace Application Demo</font>
         </h1>
+        <br />
+        <br />
+          <a href="#" class="discover" v-scroll-to="'#products'">Discover more</a>
       </center>
       <!--<p>You can browse stores, products and even buy them with iota tokens! It's 100% free and feeless!</p>-->
       <!--<router-link to="/products">Discover Products!</router-link>-->
       &nbsp;&nbsp;
-      <h2>
         &nbsp;&nbsp;
         <center>
-          <font color="#FFFFFF">
-            
-            You are connected to store:
-          </font>
-          <strong v-if=" $store.state.shop.shop.data">{{ $store.state.shop.shop.data.name }}</strong>
+          <div v-if="connected">
+            <h2 color="#FFFFFF">You are connected to store:</h2>
+            <strong v-if=" $store.state.shop.shop.data">{{ $store.state.shop.shop.data.name }}</strong>
+          </div>
+          <div v-else>
+            <p>not connected</p>
+          </div>
         </center>
-      </h2>
-      <h3>
+
+      <p>
         <center>
           <font color="#FFFFFF">Connect to another shop?</font>
         </center>
-      </h3>
-
-      <el-form :inline="false" :model="form">
+      </p>
+      <el-form :label-position="top" :model="form">
         <el-row>
           <el-col :span="24">
             <div class="grid-content bg-purple-dark"></div>
           </el-col>
         </el-row>
-        <el-main><el-form-item size="large" label="Fill in shop root"><el-link href="https://google.de" type="primary">(?)</el-link>
-          <el-input autofocus v-model="form.root" placeholder="Shop root address"></el-input>
-        </el-form-item></el-main>
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit">Change Shop</el-button>
-        </el-form-item>
+        <el-main>
+          <div class="form_wrapper">
+            <el-form-item label="Paste shop address">
+              <el-input class="shop_input" autofocus v-model="form.root" placeholder="Shop address"></el-input>
+            </el-form-item>
+          </div>
+        </el-main>
       </el-form>
-      <div class="wave">
-        <img src="/src/assets/wave.svg" />
-      </div>
-      <h2>All Products</h2>
-      
       <ProductList />
-      <a href="#" v-scroll-to="'#element'">Scroll to #element</a>
     </div>
+    <img class="wave" src="/src/assets/wave.svg" />
   </div>
 </template>
 
 <script>
 import ProductList from "./components/productList";
-import Popup from './components/popup'
 
 export default {
   name: "Storefront",
-  components: { ProductList, Popup },
+  components: { ProductList },
   data() {
     return {
+      connected: false,
       form: {
         root:
-          "NHHBDSISWAIT9BSA9JNON9CDYZHDEXFAOJFTF9MDVMLCWQFQB9IBIAMQTDBTZFQDEGQZSPLDASVIWQPGD"
+          ""
       }
     };
   },
@@ -85,7 +84,7 @@ export default {
 .storefront {
   margin: -30px 0px 0px 0px;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: block;
   background-color: #28222c;
 }
@@ -117,17 +116,37 @@ export default {
   background-color: #f9fafc;
 }
 .el-input {
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.div1
-{
-margin:0 0 0px 0; 
+.div1 {
+  margin: 0 0 0px 0;
 }
-.wave
-{
-position: absolute;
-width: 100%; 
-height: 100vh;
+.wave {
+  position: fixed;
+  width: 100%;
+  height: 148px;
+  top: 100vh;
+  left: 0;
+  z-index: 1000;
 }
 
+.shop_input {
+  width: 80%;
+}
+
+.form_wrapper {
+  text-align: center;
+}
+
+.discover {
+  color: var(--white);
+  font-size: .8em;
+  &:hover {
+    color: var(--text) !important;
+  }
+
+}
+p {
+  color: #FFF;
+}
 </style>

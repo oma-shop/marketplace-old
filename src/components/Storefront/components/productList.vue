@@ -1,5 +1,6 @@
 <template>
-	<div>
+	<div id="products">
+	    <h2>All Products</h2>
 		<p>{{length}} products</p>
 		<el-row :gutter="12" >
 			<el-col :span="8" v-for="product in products" v-bind:key="product.data.id">
@@ -29,4 +30,9 @@ export default {
 </script>
 
 <style lang="scss">
+#products {
+	margin-top: 50px;
+	color: white;
+	text-align: center;
+}
 </style>
