@@ -1,6 +1,6 @@
 <template>
   <div class="storefront">
-    <div bgcolor="#28222C">
+    <div class="div1" bgcolor="#28222C">
       &nbsp;&nbsp;
       <center>
         <h1>
@@ -32,18 +32,18 @@
             <div class="grid-content bg-purple-dark"></div>
           </el-col>
         </el-row>
-        <el-form-item label="Fill in shop root"><el-link href="https://google.de" type="primary">(?)</el-link>
+        <el-main><el-form-item size="large" label="Fill in shop root"><el-link href="https://google.de" type="primary">(?)</el-link>
           <el-input autofocus v-model="form.root" placeholder="Shop root address"></el-input>
-        </el-form-item>
+        </el-form-item></el-main>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">Change Shop</el-button>
         </el-form-item>
       </el-form>
+      <div class="wave">
+        <img src="/src/assets/wave.svg" />
+      </div>
       <h2>All Products</h2>
-      <img 
-    src="/src/assets/wave.svg" 
-    height="815"
-    width="100%" />
+      
       <ProductList />
       <a href="#" v-scroll-to="'#element'">Scroll to #element</a>
     </div>
@@ -52,10 +52,11 @@
 
 <script>
 import ProductList from "./components/productList";
+import Popup from './components/popup'
 
 export default {
   name: "Storefront",
-  components: { ProductList },
+  components: { ProductList, Popup },
   data() {
     return {
       form: {
@@ -77,6 +78,7 @@ export default {
   }
 };
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
@@ -108,7 +110,7 @@ export default {
 }
 .grid-content {
   border-radius: 4px;
-  min-height: 36px;
+  min-height: 50px;
 }
 .row-bg {
   padding: 10px 0;
@@ -117,4 +119,15 @@ export default {
 .el-input {
   color: #FFFFFF;
 }
+.div1
+{
+margin:0 0 0px 0; 
+}
+.wave
+{
+position: absolute;
+width: 100%; 
+height: 100vh;
+}
+
 </style>
